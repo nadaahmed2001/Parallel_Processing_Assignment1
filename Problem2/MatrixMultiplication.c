@@ -40,13 +40,13 @@ int main(int argc, char** argv) {
     int **result_matrix;//for master
     int result_rows,result_cols;//for master
     
-    if(rank==0)
+    if(rank==0)//Master
     {
         printf("Welcome to vector Matrix multiplication program!\n");
         printf("To read dimensions and values from file press 1\n");
         printf("To read dimensions and values from console press 2\n");
         scanf("%d",&choice);
-        if(choice==1){
+        if(choice==1){//Read file
             FILE *fp;
             int i, j;
             fp = fopen("matrix.txt", "r");
@@ -58,11 +58,13 @@ int main(int argc, char** argv) {
                 exit(1);
             }
             printf("r1 = %d, c1 = %d, r2 = %d, c2 = %d \n", r1, c1, r2, c2);
-        
+            
+            //Allocate matrix 1 in memory
             m1 = (int**)malloc(r1 * sizeof(int*));
             for (i = 0; i < r1; i++)
                 m1[i] = (int*)malloc(c1 * sizeof(int));
-
+            
+            //Allocate matrix 2
             m2 = (int**)malloc(r2 * sizeof(int*));
             for (i = 0; i < r2; i++)
                 m2[i] = (int*)malloc(c2 * sizeof(int));
@@ -102,11 +104,11 @@ int main(int argc, char** argv) {
                 printf("Matrices Can't be multiplied together\n");
                 exit(1);
             }
-            //building matrix 1
+            //Allocate matrix 1
             m1 = (int**)malloc(r1 * sizeof(int*));
             for (int i = 0; i < r1; i++)
                 m1[i] = (int*)malloc(c1 * sizeof(int));
-            //building matrix 2
+            //Allocate matrix 2
             m2 = (int**)malloc(r2 * sizeof(int*));
             for (int i = 0; i < r2; i++)
                 m2[i] = (int*)malloc(c2 * sizeof(int));
@@ -289,7 +291,7 @@ int main(int argc, char** argv) {
         }
 
         //send result matrix to master
-        //1-send rows and columns
+        //1-send rows
         MPI_Send(&Myr1_per_process, 1, MPI_INT, 0, 2, MPI_COMM_WORLD);
         //2-send result matrix
         for(int i=0;i<Myr1_per_process;i++){
