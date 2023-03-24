@@ -9,8 +9,9 @@ Assignment 1 in High Performance Computing (Parallel Processing)
 Size of array may not be divisible by number of processes. So, this case must be handeled
 
 ### ScreenShots of my source code output:
-
+Example where array size is divisible by number of processes
 ![Problem1Capture1](https://user-images.githubusercontent.com/60941223/227506808-0b0e82ec-60da-4a53-bdb8-70378537f570.JPG)
+Example where array size is not divisible by number of processes
 ![Problem1Capture2](https://user-images.githubusercontent.com/60941223/227506821-df42e0b9-43d2-4e42-8b21-0d0b06ac1912.JPG)
 
 ## Problem 2 (Matrix Multiplication)
