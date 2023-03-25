@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 		// collects local max from other processes
 		int local_max;
 		int local_max_index;
-        int global_max=0;
+       		int global_max=0;
 		int global_max_index;
 		for (i = 1; i < np; i++) {
 			//recives the local max from slave processes
