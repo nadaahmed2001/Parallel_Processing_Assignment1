@@ -16,10 +16,10 @@ Example where array size is not divisible by number of processes
 ![Problem1Capture2](https://user-images.githubusercontent.com/60941223/227506821-df42e0b9-43d2-4e42-8b21-0d0b06ac1912.JPG)
 
 ## Problem 2 (Matrix Multiplication)
-Write a matrix multiplication program, Matrices’ dimensions and values are taken as
+- Write a matrix multiplication program, Matrices’ dimensions and values are taken as
 an input.\
-Take input from console and from file.\
-Must use dynamic allocation.
+- Take input from console and from file.\
+- Must use dynamic allocation.
 
 ### ScreenShots of my source code output:
 Reading from console
