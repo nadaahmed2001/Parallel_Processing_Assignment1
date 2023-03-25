@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-
 void print_2d(int **ary,int row,int col)
 {
     for (int i = 0; i <row; ++i) {
@@ -30,7 +29,7 @@ int main(int argc, char** argv) {
     int rows_per_process;
     int remaining_rows;
 
-//for slave
+    //for slave
     int Myr1_per_process,my_c1;
     int **my_m1;
     int **my_m2;
@@ -229,7 +228,7 @@ int main(int argc, char** argv) {
                 MPI_Send(m1[j], c1, MPI_INT, i, 2, MPI_COMM_WORLD);
             }
             //recieve the result from each process
-        printf("Result matrix is :(%d x %d) \n",r1,c2);
+            printf("Result matrix is :(%d x %d) \n",r1,c2);
             for(int i=1;i<size;i++){
             MPI_Recv(&result_rows, 1, MPI_INT, i, 2, MPI_COMM_WORLD, &status);
             int sender=status.MPI_SOURCE;
@@ -241,9 +240,9 @@ int main(int argc, char** argv) {
             }
 
         }//end else
-
         
     }
+    
     //Slave processes
     else
     {
@@ -260,7 +259,7 @@ int main(int argc, char** argv) {
             MPI_Recv(my_m2[i], my_c2, MPI_INT, 0, 2, MPI_COMM_WORLD, &status);
         }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //each process recive its portion of rows and columns from matrix 1
         MPI_Recv(&Myr1_per_process, 1, MPI_INT, 0, 2, MPI_COMM_WORLD, &status);
@@ -297,8 +296,6 @@ int main(int argc, char** argv) {
         for(int i=0;i<Myr1_per_process;i++){
             MPI_Send(my_result[i], my_c2, MPI_INT, 0, 1, MPI_COMM_WORLD);
         }
-
-
 
     }
 
