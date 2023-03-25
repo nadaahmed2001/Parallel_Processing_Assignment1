@@ -6,7 +6,7 @@ Assignment 1 in High Performance Computing (Parallel Processing)
  Develop a parallel program that outputs max number in a given array.
     
 -> Note:\
-Size of array may not be divisible by number of processes. So, this case must be handeled
+ Size of array may not be divisible by number of processes. So, this case must be handeled
 
 ### ScreenShots of my source code output:
 Example where array size is divisible by number of processes
