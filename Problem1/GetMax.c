@@ -47,26 +47,16 @@ int main(int argc, char* argv[])
 				for (i = 1; i < np; i++) {
 					index = (i-1) * elements_per_process;
 
-					MPI_Send(&elements_per_process,
-							1, MPI_INT, i, 2,
-							MPI_COMM_WORLD);
-					MPI_Send(&a[index],
-							elements_per_process,
-							MPI_INT, i, 1,
-							MPI_COMM_WORLD);
+					MPI_Send(&elements_per_process,1, MPI_INT, i, 2,MPI_COMM_WORLD);
+					MPI_Send(&a[index],elements_per_process,MPI_INT, i, 1,MPI_COMM_WORLD);
 				}//end for
 
 			}else{//array size is not divisible by no. of processes
 				for (i = 1; i < np-1; i++) {
 					index = (i-1) * elements_per_process;
 
-					MPI_Send(&elements_per_process,
-							1, MPI_INT, i, 2,
-							MPI_COMM_WORLD);
-					MPI_Send(&a[index],
-							elements_per_process,
-							MPI_INT, i, 1,
-							MPI_COMM_WORLD);
+					MPI_Send(&elements_per_process,1, MPI_INT, i, 2,MPI_COMM_WORLD);
+					MPI_Send(&a[index],elements_per_process,MPI_INT, i, 1,MPI_COMM_WORLD);
 				}//end for
 
 				// last process handles remaining elements
