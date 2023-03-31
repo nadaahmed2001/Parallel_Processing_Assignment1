@@ -17,8 +17,8 @@ Example where array size is not divisible by number of processes
 
 ## Problem 2 (Matrix Multiplication)
 - Write a matrix multiplication program, Matrices’ dimensions and values are taken as
-an input.\
-- Take input from console and from file.\
+an input.
+- Take input from console and from file.
 - Must use dynamic allocation.
 
 ### ScreenShots of my source code output:
