@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
 			MPI_Recv(&local_max_index, 1, MPI_INT,i, 2,MPI_COMM_WORLD,&status);
 			int sender= status.MPI_SOURCE;
 			printf("Hello from slave#%d Max number in my partition is %d and index is %d \n",sender,local_max,local_max_index);
-            global_max=max(global_max,local_max);
+          		global_max=max(global_max,local_max);
 			
 		}
 		//get global max index
@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
 		MPI_Recv(&my_array, n_elements_recieved, MPI_INT,0, 1, MPI_COMM_WORLD,&status);
 
 		// calculates its local maximum
-        int mylocal_max=-100000;
+        	int mylocal_max=-100000;
 		int mylocal_max_index;
 			for (int i = 0; i < n_elements_recieved; i++){
 				mylocal_max =max(mylocal_max,my_array[i]);
